@@ -1,9 +1,19 @@
 def change(amount)
 
-	exact_change = []
-	[25, 10, 5, 1].each do |coin|
+	exact_change = {}
+	{quater: 25, dime: 10, nickle: 5, penny: 1}.each do |coin|
 		exact_change << [coin] * (amount / coin) if amount >= coin
 		amount = amount - (coin * (amount / coin))
 	end
-	exact_change.flatten
+	exact_change.map(&:to_i)
 end
+
+
+# Write a function that takes a number of cents, and that returns a hash containing the least number of coins needed to generate the value of cents.
+
+# eg. If you have 11 cents you should return {:dime => 1, :penny => 1};
+# eg. If you have 31 cents you should return {:quarter => 1, :nickel => 1, :penny => 1};
+# eg. If you have 93 cents {:quarter => 3, :dime => 1, nickel => 1, :penny => 3}
+
+# Start a new repo
+# Build up your coin_changer using tests. Commit to git after every test.
