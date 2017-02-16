@@ -43,8 +43,8 @@ class TestCoinChanger < Minitest::Test
 	# end
 
 	def test_99_returns_3Q_2D_4P
-		amount = 99
-		assert_equal([25, 25, 25, 10, 10, 1, 1, 1, 1], change(amount)
+		amount = change(99)
+		assert_equal({quarter:3, dime:2, penny:4}, amount)
 	end
 
 	# def test_99_returns_3Q_2D_4P

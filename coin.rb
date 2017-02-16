@@ -1,11 +1,12 @@
 def change(amount)
 
-	exact_change = {}
-	{quater: 25, dime: 10, nickle: 5, penny: 1}.each do |coin|
-		exact_change << [coin] * (amount / coin) if amount >= coin
+	exact_change = []
+	coin_value = {quarter:25, dime:10, nickle:5, penny:1}
+	.each do |coin, key|
+		exact_change << (coin * (amount / coin)) if amount >= coin
 		amount = amount - (coin * (amount / coin))
 	end
-	exact_change.map(&:to_i)
+	exact_change
 end
 
 
